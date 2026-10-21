@@ -104,7 +104,8 @@ def processar_conversao(valor_em_reais, moeda_escolhida):
         'sucesso': True,
         'moeda': moeda_normalizada,
         'cotacao': cotacao,
-        'resultado': resultado
+        'resultado': resultado,
+        'data_hora': data_hora
     }
 
 def normalizar_moeda(codigo): # Função para 'normalizar' a moeda e não precisar ficar repetindo o strip e o upper

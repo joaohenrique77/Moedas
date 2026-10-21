@@ -48,6 +48,15 @@ def converter_de_real_para_estrangeira(*args):
     if resposta['sucesso']:
         cotacao = resposta['cotacao']
         resultado = resposta['resultado']
+        data_hora_api = resposta['data_hora'] # Pega a data/hora enviada pelo backend
+        
+        # Formata a data e hora da API para o padrão brasileiro
+        try:
+            from datetime import datetime
+            dt_obj = datetime.strptime(data_hora_api, "%Y-%m-%d %H:%M:%S")
+            data_hora_formatada = dt_obj.strftime("%d/%m/%Y às %H:%M:%S")
+        except:
+            data_hora_formatada = data_hora_api # Fallback caso venha em outro formato
         
         # Atualiza a caixa da moeda estrangeira sem acionar loops de eventos
         entry_resultado.delete(0, 'end')
@@ -63,7 +72,7 @@ def converter_de_real_para_estrangeira(*args):
         texto_cotacao = f"{cotacao:.4f}" if cotacao < 0.1 else f"{cotacao:.2f}"
         label_valor_destaque.configure(text=f"{texto_cotacao} Real brasileiro".replace('.', ','))
         
-        label_data_hora.configure(text="Cotação atualizada com sucesso.")
+        label_data_hora.configure(text=f"Cotação atualizada com sucesso em {data_hora_formatada}.")
 
 
 def converter_de_estrangeira_para_real(*args):
@@ -89,7 +98,15 @@ def converter_de_estrangeira_para_real(*args):
     if dados_cotacao is None:
         return
         
-    cotacao, _ = dados_cotacao
+    cotacao, data_hora = dados_cotacao # Recebe a data e hora diretamente do backend
+    
+    # Formata a data e hora da API para o padrão brasileiro 
+    try:
+        from datetime import datetime
+        dt_obj = datetime.strptime(data_hora, "%Y-%m-%d %H:%M:%S")
+        data_hora_formatada = dt_obj.strftime("%d/%m/%Y às %H:%M:%S")
+    except:
+        data_hora_formatada = data_hora
     
     # Cálculo inverso: Valor Estrangeiro x Cotação = Valor em Reais
     valor_bruto_reais = valor_validado * cotacao
@@ -108,6 +125,7 @@ def converter_de_estrangeira_para_real(*args):
     # Atualiza o texto da cotação no topo
     texto_cotacao = f"{cotacao:.4f}" if cotacao < 0.1 else f"{cotacao:.2f}"
     label_valor_destaque.configure(text=f"{texto_cotacao} Real brasileiro".replace('.', ','))
+    label_data_hora.configure(text=f"Cotação atualizada com sucesso em {data_hora_formatada}.")
 
 def atualizar_ao_mudar_aba(*args):
     # Se a última coisa que o usuário fez foi digitar na caixa de moeda estrangeira
