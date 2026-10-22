@@ -50,5 +50,23 @@ Certifique-se de ter o Python instalado em sua máquina.
    ```bash
    git clone [https://github.com/seu-usuario/nome-do-seu-repositorio.git](https://github.com/seu-usuario/nome-do-seu-repositorio.git)
    cd nome-do-seu-repositorio
+2. **Crie o ambiente virtual (venv)**
+   ```bash
+   python -m venv venv
+   ```
+3. **Ative o ambiente virtual**
+   ```bash
+   .\venv\Scripts\Activate.ps1
+   ```
+4. **Instale as dependências**
+   ```bash
+   pip install -r requirements.txt
+   ```
+5. **Execute a aplicação**
+   ```bash
+   python app.py
+   ```
+
+## Créditos
 
 Feito por João Figueiró e Filipe Nonemacher
