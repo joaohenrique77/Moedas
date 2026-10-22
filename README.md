@@ -4,6 +4,12 @@ Um aplicativo desktop moderno de conversão de moedas com uma interface gráfica
 
 ---
 
+## Interface da aplicação 
+A imagem abaixo apresenta a tela principal do sistema 
+
+![Tela principal](imagens\tela_inicial.png)
+
+
 ## 🚀 Funcionalidades
 
 * **Cotações em Tempo Real:** Consulta taxas de câmbio atualizadas diretamente da API pública da AwesomeAPI.
