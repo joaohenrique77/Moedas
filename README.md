@@ -50,3 +50,5 @@ Certifique-se de ter o Python instalado em sua máquina.
    ```bash
    git clone [https://github.com/seu-usuario/nome-do-seu-repositorio.git](https://github.com/seu-usuario/nome-do-seu-repositorio.git)
    cd nome-do-seu-repositorio
+
+Feito por João Figueiró e Filipe Nonemacher
