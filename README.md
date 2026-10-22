@@ -7,7 +7,7 @@ Um aplicativo desktop moderno de conversão de moedas com uma interface gráfica
 ## Interface da aplicação 
 A imagem abaixo apresenta a tela principal do sistema 
 
-![Tela principal](imagens\tela_inicial.png)
+![Tela principal](imagens/tela_inicial.png)
 
 
 ## 🚀 Funcionalidades
